@@ -1,0 +1,70 @@
+<div>
+    <select name="" id="">
+        <option value="all">All</option>
+        <option *ngFor="let item of industoryList" value="{{item.encode}}">{{item.name}}</option>
+    </select>
+    <select name="" id="">
+        <option value="all">All</option>
+        <option *ngFor="let item of areaKeys" value="{{item}}">{{areaList.data[item]}}</option>
+    </select>
+    <div class="tools">
+        <div class="toolsleft">
+            <div class="toolTabs" *ngFor="let keys of resultKey" (click)="toogleTab(keys)">
+                {{keys}}
+               
+                
+                <!-- <div class="items" *ngFor="let item of result[keys]" >
+                  {{item.name}}
+
+                </div> -->
+            </div>
+            <div class="theItem" *ngIf="checkCaiwu(myresult)"> 
+                <div class="myItem" *ngFor="let item of myresult ">
+                    <input type="checkbox" id="{{item.field}}" >
+                     <label for=""> {{item.name}}</label>
+                   
+                </div>
+            </div>
+            <div *ngIf="checkCaiWubaobiao()">
+                <div>
+                    <h4>利润表</h4>
+                    <div class="mycaiwu" *ngFor="let item of myLirun[0] " >
+                    
+                        <input type="checkbox" id="{{item.field}}"(change)="rangeListener(item.field)">
+                             <label for=""> {{item.name}}</label>
+                      
+                    </div>
+                </div>
+                <div>
+                 <h4>每股数据</h4>
+                    <div class="mycaiwu" *ngFor="let item of meigushuju[0] ">
+                        <input type="checkbox" id="{{item.field}}">
+                             <label for=""> {{item.name}}</label>
+                     
+                    </div>
+                </div>
+                <div>
+                    <h4>资产负债</h4>
+                    <div class="mycaiwu" *ngFor="let item of zichanfuzhaibiao[0] ">
+                        <input type="checkbox" id="{{item.field}}">
+                             <label for=""> {{item.name}}</label>
+                    </div>
+                </div>
+                <div>
+                    <h4>现金流量报</h4>
+                    <div class="mycaiwu" *ngFor="let item of xianjinliuliangbiao[0] ">
+                        <input type="checkbox" id="{{item.field}}">
+                        <label for=""> {{item.name}}</label>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="false; else elseTemplate">
+                This is true
+            </ng-container>
+            <ng-template #elseTemplate>
+                This is false
+            </ng-template>
+        </div>
+    </div>
+    
+</div>

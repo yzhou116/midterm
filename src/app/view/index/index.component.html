@@ -1,0 +1,101 @@
+<!-- <script>
+    angular.module('scopeExample', [])
+    .controller('GreetController', ['$scope', '$rootScope', function($scope, $rootScope) {
+      $scope.name = 'World';
+      $rootScope.department = 'AngularJS';
+    }])
+    .controller('ListController', ['$scope', function($scope) {
+      $scope.names = ['Igor', 'Misko', 'Vojta'];
+    }]);
+    </script> -->
+<div class="main">
+    <div class="mainLeft">
+
+        <div class="zhishu">
+            <div class="zhishulist">
+                <div class="zhishuItem" *ngFor="let item of  quoteList1 ">
+                   <!--  [class]={lower:item.quote.percent<0} -->
+
+                    <div class="zhishuItemLeft">
+                        <div class="lower" *ngIf="item.quote.chg < 0">
+                            <h3>{{item.quote.name}}</h3>
+                            <div>
+                                {{item.quote.current}}
+                            </div>
+                            <p *ngIf="item.quote.chg> 0">{{item.quote.chg}} (+{{item.quote.percent}}%)</p>
+                            <p *ngIf="item.quote.chg < 0">{{item.quote.chg}} ({{item.quote.percent}}%)</p>
+                            <p *ngIf="item.quote.chg == 0">No Changes</p>
+                        </div>
+                        <div class="heigher" *ngIf="item.quote.chg > 0">
+                            <h3>{{item.quote.name}}</h3>
+                            <div>
+                                {{item.quote.current}}
+                            </div>
+                            <p *ngIf="item.quote.chg> 0">{{item.quote.chg}} (+{{item.quote.percent}}%)</p>
+                            <p *ngIf="item.quote.chg < 0">{{item.quote.chg}} ({{item.quote.percent}}%)</p>
+                            <p *ngIf="item.quote.chg == 0">No Changes</p>
+                        </div>
+                        
+                    </div>
+                    <div class="svg">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" style="width: 140px; height: 57.4px;"><path class="StockSlider_last-close_3k-" d="M0 35 L140 35"></path><path class="StockSlider_polyline_YMO" d="M0 47 L0 40 L0 47 L1 45 L1 40 L1 46 L2 39 L2 39 L2 41 L3 36 L3 29 L3 39 L4 43 L4 36 L5 36 L5 41 L5 46 L6 45 L6 40 L6 40 L7 40 L7 42 L7 41 L8 41 L8 39 L8 44 L9 42 L9 42 L10 47 L10 51 L10 56 L11 62 L11 64 L11 59 L12 58 L12 55 L12 50 L13 51 L13 52 L13 52 L14 51 L14 46 L15 46 L15 43 L15 48 L16 47 L16 48 L16 51 L17 51 L17 48 L17 49 L18 48 L18 48 L18 47 L19 50 L19 55 L20 56 L20 54 L20 57 L21 53 L21 51 L21 50 L22 49 L22 49 L22 49 L23 47 L23 46 L23 49 L24 47 L24 47 L25 49 L25 50 L25 52 L26 53 L26 56 L26 56 L27 56 L27 55 L27 55 L28 55 L28 55 L29 54 L29 51 L29 53 L30 55 L30 54 L30 55 L31 55 L31 58 L31 59 L32 57 L32 55 L32 55 L33 55 L33 55 L34 57 L34 54 L34 53 L35 51 L35 52 L35 52 L36 50 L36 50 L36 49 L37 49 L37 49 L37 50 L38 49 L38 47 L39 48 L39 49 L39 47 L40 47 L40 45 L40 44 L41 44 L41 45 L41 43 L42 42 L42 43 L42 46 L43 46 L43 44 L44 45 L44 44 L44 47 L45 46 L45 45 L45 45 L46 45 L46 45 L46 46 L47 46 L47 46 L47 46 L48 44 L48 44 L49 43 L49 41 L49 39 L50 40 L50 41 L50 40 L51 38 L51 38 L51 39 L52 39 L52 40 L52 40 L53 39 L53 38 L54 38 L54 38 L54 40 L55 40 L55 42 L55 41 L56 40 L56 38 L56 40 L57 40 L57 40 L58 42 L58 42 L58 42 L59 43 L59 46 L59 45 L60 44 L60 44 L60 44 L61 46 L61 46 L61 48 L62 48 L62 48 L63 48 L63 49 L63 48 L64 47 L64 49 L64 49 L65 48 L65 48 L65 46 L66 46 L66 45 L66 46 L67 46 L67 46 L68 46 L68 45 L68 47 L69 48 L69 49 L69 49 L70 50 L70 49 L70 49 L71 47 L71 47 L71 45 L72 43 L72 44 L73 44 L73 45 L73 45 L74 45 L74 45 L74 44 L75 44 L75 45 L75 48 L76 49 L76 49 L76 48 L77 48 L77 48 L78 47 L78 48 L78 49 L79 53 L79 53 L79 57 L80 55 L80 52 L80 54 L81 57 L81 58 L81 62 L82 56 L82 55 L83 51 L83 52 L83 51 L84 54 L84 54 L84 55 L85 57 L85 53 L85 56 L86 56 L86 58 L87 58 L87 59 L87 57 L88 59 L88 60 L88 62 L89 59 L89 55 L89 59 L90 59 L90 56 L90 54 L91 50 L91 51 L92 50 L92 50 L92 52 L93 53 L93 53 L93 54 L94 53 L94 54 L94 50 L95 49 L95 49 L95 48 L96 48 L96 56 L97 51 L97 55 L97 56 L98 58 L98 53 L98 53 L99 53 L99 51 L99 51 L100 50 L100 52 L100 52 L101 50 L101 48 L102 52 L102 52 L102 52 L103 48 L103 49 L103 50 L104 50 L104 57 L104 55 L105 54 L105 54 L105 52 L106 52 L106 52 L107 54 L107 57 L107 55 L108 57 L108 56 L108 56 L109 56 L109 57 L109 55 L110 55 L110 58 L110 59 L111 58 L111 59 L112 61 L112 62 L112 61 L113 62 L113 61 L113 61 L114 58 L114 58 L114 56 L115 57 L115 58 L116 58 L116 59 L116 57 L117 56 L117 55 L117 54 L118 55 L118 53 L118 54 L119 52 L119 53 L119 53 L120 52 L120 52 L121 53 L121 57 L121 59 L122 62 L122 59 L122 62 L123 62 L123 64 L123 61 L124 61 L124 58 L124 59 L125 59 L125 61 L126 63 L126 64 L126 63 L127 62 L127 63 L127 60 L128 58 L128 60 L128 62 L129 62 L129 59 L129 62 L130 57 L130 61 L131 58 L131 57 L131 57 L132 55 L132 54 L132 53 L133 52 L133 52 L133 52 L134 54 L134 57 L134 56 L135 58 L135 59 L136 60 L136 63 L136 61 L137 63 L137 58 L137 62 L138 62 L138 63 L138 64 L139 60 L139 62"></path>0</svg>
+                    </div>
+                    
+    
+                </div>
+            </div>
+            <div class="theList">
+                <div class="listitem" (click)="showThings(3)">Item 1</div>
+                <div class="listitem" (click)="showThings(6)">Item 2</div>
+                <div class="listitem" (click)="showThings(9)">Item 3</div>
+
+            </div>
+
+         
+        </div>
+
+    </div>
+    <div class="mainRight">
+        <div class="newsTab">
+            <div class="tabbtn"(click)="tabEvent(0)">推荐</div>
+            <div class="tabbtn"(click)="tabEvent(1)">7*24</div>
+            <div class="tabbtn"(click)="tabEvent(2)">护身</div>
+            <div class="tabbtn"(click)="tabEvent(3)">科创</div>
+
+        </div>
+        <div class="drag" cdkDrag>
+            <span cdkDragHandle class="dragHandle">1111111</span>
+          </div>
+          <div class="drag" cdkDragLockAxis = "x" cdkDrag>
+            <span cdkDragHandle cdkDragBoundary="body"  class="dragHandle">YIzhou</span>
+          </div>
+      <!--   <div class="try"*ngFor="let item of  content " >
+            <li>
+               
+                name: {{item.name}}, age {{item.age}}
+            </li>
+
+        </div> -->
+
+<!-- <div ng-drop="true" ng-drop-success="dropComplete($index,$data)" ng-repeat="item in content">
+    <li ng-drag="true" ng-drag-data="item" >
+        姓名：{{item.name}}，年龄：{{item.age}}
+    </li>
+</div> -->
+<!-- <div class="show-scope-demo">
+    <div ng-controller="GreetController">
+      Hello {{name}}!
+    </div>
+    <div ng-controller="ListController">
+      <ol>
+        <li ng-repeat="name in names">{{name}} from {{department}}</li>
+      </ol>
+    </div>
+  </div> -->
+
+
+
+<router-outlet></router-outlet>
+    </div>
+
+</div>
